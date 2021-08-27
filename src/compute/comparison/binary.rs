@@ -191,18 +191,8 @@ mod tests {
     #[test]
     fn test_gt_eq() {
         test_generic::<i32, _>(
-            vec![
-                "arrow".as_bytes(),
-                "datafusion".as_bytes(),
-                "flight".as_bytes(),
-                "parquet".as_bytes(),
-            ],
-            vec![
-                "flight".as_bytes(),
-                "flight".as_bytes(),
-                "flight".as_bytes(),
-                "flight".as_bytes(),
-            ],
+            vec![b"arrow", b"datafusion", b"flight", b"parquet"],
+            vec![b"flight", b"flight", b"flight", b"flight"],
             gt_eq,
             vec![false, false, true, true],
         )
@@ -211,13 +201,8 @@ mod tests {
     #[test]
     fn test_gt_eq_scalar() {
         test_generic_scalar::<i32, _>(
-            vec![
-                "arrow".as_bytes(),
-                "datafusion".as_bytes(),
-                "flight".as_bytes(),
-                "parquet".as_bytes(),
-            ],
-            "flight".as_bytes(),
+            vec![b"arrow", b"datafusion", b"flight", b"parquet"],
+            b"flight",
             gt_eq_scalar,
             vec![false, false, true, true],
         )
@@ -226,18 +211,8 @@ mod tests {
     #[test]
     fn test_eq() {
         test_generic::<i32, _>(
-            vec![
-                "arrow".as_bytes(),
-                "arrow".as_bytes(),
-                "arrow".as_bytes(),
-                "arrow".as_bytes(),
-            ],
-            vec![
-                "arrow".as_bytes(),
-                "parquet".as_bytes(),
-                "datafusion".as_bytes(),
-                "flight".as_bytes(),
-            ],
+            vec![b"arrow", b"arrow", b"arrow", b"arrow"],
+            vec![b"arrow", b"parquet", b"datafusion", b"flight"],
             eq,
             vec![true, false, false, false],
         )
@@ -246,13 +221,8 @@ mod tests {
     #[test]
     fn test_eq_scalar() {
         test_generic_scalar::<i32, _>(
-            vec![
-                "arrow".as_bytes(),
-                "parquet".as_bytes(),
-                "datafusion".as_bytes(),
-                "flight".as_bytes(),
-            ],
-            "arrow".as_bytes(),
+            vec![b"arrow", b"parquet", b"datafusion", b"flight"],
+            b"arrow",
             eq_scalar,
             vec![true, false, false, false],
         )
@@ -261,18 +231,8 @@ mod tests {
     #[test]
     fn test_neq() {
         test_generic::<i32, _>(
-            vec![
-                "arrow".as_bytes(),
-                "arrow".as_bytes(),
-                "arrow".as_bytes(),
-                "arrow".as_bytes(),
-            ],
-            vec![
-                "arrow".as_bytes(),
-                "parquet".as_bytes(),
-                "datafusion".as_bytes(),
-                "flight".as_bytes(),
-            ],
+            vec![b"arrow", b"arrow", b"arrow", b"arrow"],
+            vec![b"arrow", b"parquet", b"datafusion", b"flight"],
             neq,
             vec![false, true, true, true],
         )
@@ -281,13 +241,8 @@ mod tests {
     #[test]
     fn test_neq_scalar() {
         test_generic_scalar::<i32, _>(
-            vec![
-                "arrow".as_bytes(),
-                "parquet".as_bytes(),
-                "datafusion".as_bytes(),
-                "flight".as_bytes(),
-            ],
-            "arrow".as_bytes(),
+            vec![b"arrow", b"parquet", b"datafusion", b"flight"],
+            b"arrow",
             neq_scalar,
             vec![false, true, true, true],
         )
